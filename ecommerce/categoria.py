@@ -1,3 +1,4 @@
+
 class Categoria:
     def __init__(self, nome: str):
         if not nome or not nome.strip():

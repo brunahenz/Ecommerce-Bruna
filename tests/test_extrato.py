@@ -1,5 +1,7 @@
+
 from ecommerce.categoria import Categoria
-from ecommerce.lancamento import Lancamento
+from ecommerce.receita import Receita
+from ecommerce.despesa import Despesa
 from ecommerce.extrato import Extrato
 
 
@@ -12,8 +14,8 @@ class TestExtrato:
 
     def test_gerar_linhas_extrato(self):
         cat = Categoria("Geral")
-        l1 = Lancamento("Salário", 2500.0, "Receita", cat)
-        l2 = Lancamento("Mercado", 200.0, "Despesa", cat)
+        l1 = Receita("Salário", 2500.0, cat)
+        l2 = Despesa("Mercado", 200.0, cat)
 
         extrato = Extrato([l1, l2])
 

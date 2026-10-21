@@ -1,5 +1,7 @@
+
 from ecommerce.categoria import Categoria
-from ecommerce.lancamento import Lancamento
+from ecommerce.receita import Receita
+from ecommerce.despesa import Despesa
 from ecommerce.fechamento import Fechamento
 
 
@@ -15,10 +17,10 @@ class TestFechamento:
         cat_alimentacao = Categoria("Alimentação")
         cat_salario = Categoria("Salário")
 
-        l1 = Lancamento("Salário", 3000.0, "Receita", cat_salario)
-        l2 = Lancamento("Mercado", 250.0, "Despesa", cat_alimentacao)
-        l3 = Lancamento("Freelance", 500.0, "Receita", cat_salario)
-        l4 = Lancamento("Restaurante", 100.0, "Despesa", cat_alimentacao)
+        l1 = Receita("Salário", 3000.0, cat_salario)
+        l2 = Despesa("Mercado", 250.0, cat_alimentacao)
+        l3 = Receita("Freelance", 500.0, cat_salario)
+        l4 = Despesa("Restaurante", 100.0, cat_alimentacao)
 
         fechamento = Fechamento([l1, l2, l3, l4])
 

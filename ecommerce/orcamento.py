@@ -1,9 +1,16 @@
+
 from ecommerce.categoria import Categoria
+from ecommerce.despesa import Despesa
 
 
 class Orcamento:
 
-    def __init__(self, categoria: Categoria, limite: float, lancamentos=None) -> None:
+    def __init__(
+        self,
+        categoria: Categoria,
+        limite: float,
+        lancamentos=None
+    ) -> None:
         self.categoria = categoria
         self.limite = float(limite)
         self.lancamentos = lancamentos if lancamentos is not None else []
@@ -12,7 +19,8 @@ class Orcamento:
         return sum(
             l.valor
             for l in self.lancamentos
-            if l.tipo == "despesa" and l.categoria.nome == self.categoria.nome
+            if isinstance(l, Despesa)
+            and l.categoria.nome == self.categoria.nome
         )
 
     def valor_restante(self) -> float:

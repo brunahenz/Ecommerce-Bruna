@@ -1,3 +1,8 @@
+
+from ecommerce.receita import Receita
+from ecommerce.despesa import Despesa
+
+
 class Extrato:
 
     def __init__(self, lancamentos=None) -> None:
@@ -8,7 +13,17 @@ class Extrato:
 
     def gerar_linhas(self) -> list[str]:
         linhas = []
-        for l in self.lancamentos:
-            sinal = "+" if l.tipo == "receita" else "-"
-            linhas.append(f"{l.descricao}: {sinal}R$ {l.valor:.2f}")
+
+        for lancamento in self.lancamentos:
+            if isinstance(lancamento, Receita):
+                sinal = "+"
+            elif isinstance(lancamento, Despesa):
+                sinal = "-"
+            else:
+                continue
+
+            linhas.append(
+                f"{lancamento.descricao}: {sinal}R$ {lancamento.valor:.2f}"
+            )
+
         return linhas

@@ -53,4 +53,22 @@ Criei testes automatizados com pytest para verificar se os cálculos funcionam c
 ```bash
 uv run pytest -v
 ```
+## Módulo 4-
+
+## Perguntas:
+
+## Em cada caso (leitor, importador, exportador), você usou Simple Factory ou Factory Method? O que te fez escolher?
+
+## Nos seus serviços, o que é injetado e o que ainda é criado internamente? Por quê?
+
+## Onde está sua raiz de composição? Que colaborador você conseguiria substituir hoje sem editar nenhum serviço?
+
+## Respostas:
+
+Usei Simple Factory para escolher leitores e importadores. Para os exportadores, usei Factory Method, pois a classe base define o fluxo e as subclasses criam os documentos de formas diferentes.
+
+O serviço recebe as fábricas de leitores e importadores e o exportador pelo construtor. Dessa forma, não precisa criar essas dependências diretamente.
+
+Fica em ecommerce/aplicacao.py, na função montar_aplicacao(). Nos testes, consigo substituir os colaboradores por objetos falsos sem precisar alterar o serviço.
+
 

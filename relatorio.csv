@@ -1,0 +1,10 @@
+indicador;valor
+quantidade_lancamentos;3
+total_receitas;2500.00
+total_despesas;270.00
+saldo_final;2230.00
+
+lancamentos
+Salário: +R$ 2500.00
+Mercado: -R$ 150.00
+Conta de luz: -R$ 120.00
